@@ -65,6 +65,29 @@ string robotArm = "robot_arm_0";
 Path path1 = fleetPlanner.requestBox<Path>(robotArm, box);
 ```
 
+4. **Path Planning**
+The path planning process can be broken into following steps:
+
+    a. **Identification Process:**
+        - The function commences by identifying the locations of the robot arm and the requested box/pallet within the map.
+
+    b. **AGV Availability Check:**
+        - Following identification, the system checks for the availability of AGVs to fulfill the request.
+        - Among the available AGVs, the algorithm selects the one closest to the box/pallet position, considering the time required to reach the designated pallet.
+
+    c. **Simple Path (No Congestion):**
+        - For the simple path, the algorithm utilizes the `getPath` function.
+        - This function generates the optimal path as a sequence of waypoints.
+        - The resulting path can be visualized using the `printPath` function.
+
+    d. **Congestion-Aware Path:**
+        - In the congestion-aware scenario, the path is defined not only by waypoints but also by arrival times at those waypoints.
+        - Optionally, the system can display any waiting periods required before departing from a waypoint.
+
+    e. **System State Update:**
+        - After planning the AGV's path in congestion-aware scenarios, the system state undergoes an update.
+        - This update integrates information about the planned path for the AGV, enabling effective planning for subsequent requests.
+
 ## Number of AGVs required
 
 The optimal number of AGVs per robot is contingent on factors like box request frequency, waypoint distances, and the optimization goals of the path planning algorithm. Determining the minimum number of AGVs per robot requires an in-depth analysis of system requirements, operational constraints, and the specific characteristics of the warehouse or operational environment.
@@ -105,5 +128,5 @@ While the current implementation is in plain C++, we can build a a ROS implement
 
 5. **Additional Considerations**
 	- For a ROS implementation, additional components like nodes, services, and messages would be necessary.
-	- Define custom messages to communicate system state, box requests, and path information.
+	- We may also need to define custom messages to communicate system state, box requests, and path information.
 	- Implement a Header File containing ROS message and service definitions for proper communication between nodes.
