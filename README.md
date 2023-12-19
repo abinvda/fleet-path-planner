@@ -24,7 +24,7 @@ The Fleet Planner is a C++-based application designed to find optimal paths for 
 ## Main Components
   
 1.  **`fleetPlanner.cpp`**
-	- Orchestrates the overall planning process, leveraging support files such as `getPath` and `systemState`.
+	- Manages the overall planning process, leveraging support files such as `getPath` and `systemState`.
 	- The `requestBox(robot, box)` function locates the robot and box/pallet positions, identifies the most suitable AGV for delivery, and plans an optimal path for that AGV.
 
 2.  **`systemState.cpp`**
@@ -95,7 +95,6 @@ The optimal number of AGVs per robot is contingent on factors like box request f
 In an extreme scenario, utilizing two AGVs per robot arm can effectively minimize pallet exchange time, as long as the pallets are not requested at a faster rate than the time it takes to bring them to the robot arm. This setup allows one AGV to remove the pallet from the robot arm, while the second AGV simultaneously brings a new pallet to the robot arm. The efficacy of this approach depends on the balance between pallet request frequency and the time it takes to transport pallets.
 
 Here are some considerations and potential ways to optimize the number of AGVs per robot:
-s
 1. **Predictive Task Allocation:**
    - Leverage predictive analytics to forecast future box requests and allocate AGVs proactively. This approach reduces waiting times for AGVs, enhancing overall system efficiency.
 
