@@ -1,0 +1,63 @@
+# NOTE: This is a list of agvs/robots with their initial position and a list of pallet position and object type
+
+robot_arms: #robot arm position
+  - robot_arm_0:
+      pose: # id_4
+        x: -0.885
+        y: 3.48
+        theta: 1.5708
+  - robot_arm_1:
+      pose: # id_7
+        x: -0.18
+        y: 5.81
+        theta: 0.0
+  - robot_arm_2:
+      pose: # id_14
+        x: -1.13
+        y: 2.28
+        theta: 0.0
+agvs: #agv can move robot arm or pallets
+  - agv_0:
+      pose: # id_14
+        x: -1.13
+        y: 2.28
+        theta: 0.0
+      status: "idle"
+  - agv_1:
+      pose: # id_6
+        x: 0.58
+        y: 5.31
+        theta: 0.0
+      status: "idle"
+  - agv_2:
+      pose: # id_6
+        x: 0.58
+        y: 5.31
+        theta: 0.0
+      status: "idle"
+pallets:
+  - pallet_0:
+      pose: # id_14 # agv_0
+        x: -1.13
+        y: 2.28
+        theta: 0.0
+      object: "water"
+  - pallet_1:
+      pose: # id_6 # agv_1
+        x: 0.58
+        y: 5.31
+        theta: 0.0
+      object: "coke"
+  - pallet_2:
+      pose:
+        x: 2.97
+        y: 1.61
+        theta: 3.14159
+      object: "green_tea"
+    
+pallet_place: #waypoint ID in the map where it is possible to place a pallet
+  - parking_0: "id_8"
+  - parking_1: "id_10"
+  - parking_2: "id_12"
+  - parking_3: "id_14"
+  - parking_4: "id_6"
