@@ -65,26 +65,26 @@ string robotArm = "robot_arm_0";
 Path path1 = fleetPlanner.requestBox<Path>(robotArm, box);
 ```
 
-4. ## **Path Planning**
+## Path Planning
 The path planning process can be broken into following steps:
 
-a. **Identification Process:**
+1. **Identification Process:**
     - The function commences by identifying the locations of the robot arm and the requested box/pallet within the map.
 
-b. **AGV Availability Check:**
+2. **AGV Availability Check:**
 	- Following identification, the system checks for the availability of AGVs to fulfill the request.
 	- Among the available AGVs, the algorithm selects the one closest to the box/pallet position, considering the time required to reach the designated pallet.
 
-c. **Simple Path (No Congestion):**
+3. **Simple Path (No Congestion):**
 	- For the simple path, the algorithm utilizes the `getPath` function.
 	- This function generates the optimal path as a sequence of waypoints.
 	- The resulting path can be visualized using the `printPath` function.
 
-d. **Congestion-Aware Path:**
+4. **Congestion-Aware Path:**
 	- In the congestion-aware scenario, the path is defined not only by waypoints but also by arrival times at those waypoints.
 	- Optionally, the system can display any waiting periods required before departing from a waypoint.
 
-e. **System State Update:**
+5. **System State Update:**
 	- After planning the AGV's path in congestion-aware scenarios, the system state undergoes an update.
 	- This update integrates information about the planned path for the AGV, enabling effective planning for subsequent requests.
 
