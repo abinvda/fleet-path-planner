@@ -88,35 +88,22 @@ s
 These considerations collectively contribute to an efficient AGV fleet, minimizing pallet exchange times while optimizing resource utilization.
 
 ## ROS Components
-
+While the current implementation is in plain C++, we can build a a ROS implementation with the following components: 
   
 
 1.  **fleet_planner_node:** Corresponding to `fleetPlanner.cpp`
 	- Main executable file. Integrates functions from other ROS nodes.
 
-  
-
 2. **system_state_node:** Corresponding to `systemState.cpp`
 	- Could be implemented as a ROS node publishing system state information.
-
-  
 
 3. **graph_generator_node:** Corresponding to `getGraph.cpp`
 	- Could be implemented as a ROS node generating a graph and publishing it.
 
-  
-
 4. **path_calculator_node:** Corresponding to `getPath.cpp`
-	- Could be a ROS service that takes the current system state and returns optimal paths.
+	- Could be a ROS service that takes the current system state and returns optimal paths.  
 
-  
-
-## Additional Considerations
-
-  
-
-- For a ROS implementation, additional components like nodes, services, and messages would be necessary.
-
-- Define custom messages to communicate system state, box requests, and path information.
-
-- Implement a Header File containing ROS message and service definitions for proper communication between nodes.
+5. **Additional Considerations**
+	- For a ROS implementation, additional components like nodes, services, and messages would be necessary.
+	- Define custom messages to communicate system state, box requests, and path information.
+	- Implement a Header File containing ROS message and service definitions for proper communication between nodes.
